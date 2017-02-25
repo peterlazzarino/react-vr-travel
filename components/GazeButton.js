@@ -90,6 +90,7 @@ class GazeButton extends React.Component{
     }
 }
 
+
 const GazeButtonConnect = connect(mapStateToProps, mapDispatchToProps)(GazeButton);
 
 export default GazeButtonConnect;

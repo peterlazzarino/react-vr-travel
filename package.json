@@ -9,13 +9,18 @@
     "postinstall": "node postinstall.js && echo done"
   },
   "dependencies": {
-    "ovrui": "~0.1.0",
     "ovr-audio": "~0.1.0",
+    "ovrui": "~0.1.0",
     "react": "15.3.2",
     "react-native": "0.37.0",
-    "three": "^0.80.1",
+    "react-redux": "^5.0.3",
     "react-vr": "~0.1.0",
     "react-vr-web": "~0.1.0",
+    "redux": "^3.6.0",
+    "three": "^0.80.1",
     "xopen": "1.0.0"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.3.2"
   }
 }
