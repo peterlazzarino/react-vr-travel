@@ -1,16 +1,6 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-vr';
-import { connect } from 'react-redux';
 import { absoluteCenter } from '../style/style-mixins'; 
-
-
-const mapStateToProps = (state, ownProps) => {
-    return state["gazeButtonReducer"][ownProps.identifier];
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-    return { }
-}
 
 class GazeButton extends React.Component{
     constructor(props){
@@ -35,11 +25,9 @@ class GazeButton extends React.Component{
     }
     gazeComplete(){
         clearInterval(this.gazeTimeout); 
-        console.log("DONE");
     }
     increaseOverlayWidth(){
         const newOverlayWidth = this.state.gazeOverLayWidth + (this.props.width / 100);
-        console.log(newOverlayWidth);
         if(newOverlayWidth > this.props.width){
             this.gazeComplete();
         }
@@ -82,7 +70,4 @@ class GazeButton extends React.Component{
     }
 }
 
-
-const GazeButtonConnect = connect(mapStateToProps, mapDispatchToProps)(GazeButton);
-
-export default GazeButtonConnect;
+export default GazeButton;

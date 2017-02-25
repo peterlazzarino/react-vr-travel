@@ -9,11 +9,11 @@ import {
 } from 'react-vr';
 import DestinationChooser from "./components/DestinationChooser";
 import { Provider } from "react-redux";
-import { gazeButtonReducer } from './reducers/gazeButtonReducer';
+import { navigationReducer } from './reducers/navigationReducer';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 const reducers = {
-    gazeButtonReducer: gazeButtonReducer
+    navigationReducer: navigationReducer
 }
 
 const composeEnhancers = (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -37,7 +37,7 @@ class GATVR extends React.Component {
             }}>
             Choose a destination
           </Text>
-          <DestinationChooser destinations={["Europe", "Asia"]} />
+          <DestinationChooser identifier="destination-nav" destinations={["Europe", "Asia"]} />
         </View>
       </Provider>
     );

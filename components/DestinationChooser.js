@@ -1,6 +1,16 @@
 import React from "react";
 import GazeButton from "./GazeButton";
 import { View } from 'react-vr';
+import { connect } from 'react-redux';
+
+
+const mapStateToProps = (state, ownProps) => {
+    return state["navigationReducer"][ownProps.identifier] || {};
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return { }
+}
 
 class DestinationChooser extends React.Component{
     constructor(props){
@@ -28,4 +38,8 @@ class DestinationChooser extends React.Component{
     }
 }
 
-export default DestinationChooser;
+
+
+const DestinationChooserConnect = connect(mapStateToProps, mapDispatchToProps)(DestinationChooser);
+
+export default DestinationChooserConnect;
