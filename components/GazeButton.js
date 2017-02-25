@@ -1,23 +1,15 @@
 import React from "react";
 import { Text, View, StyleSheet } from 'react-vr';
+import { connect } from 'react-redux';
 import { absoluteCenter } from '../style/style-mixins'; 
 
 
 const mapStateToProps = (state, ownProps) => {
-    const nonImmutableState = state.get("metaHeaderReducer").toJS();
-    return {
-        location: nonImmutableState.location || ownProps.location,
-        params: nonImmutableState.params || ownProps.params,
-        titleRules: nonImmutableState.titleRules || ownProps.titleRules,
-        metaTagRules: nonImmutableState.metaTagRules || ownProps.metaTagRules,
-    };
+    return state["gazeButtonReducer"][ownProps.identifier];
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-    return {
-        fetchMeta: (path) => dispatch(fetchMetaContent(path)),
-        fetchTitle: (path) => dispatch(fetchTitleContent(path))
-    }
+    return { }
 }
 
 class GazeButton extends React.Component{

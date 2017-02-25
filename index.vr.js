@@ -13,11 +13,11 @@ import { gazeButtonReducer } from './reducers/gazeButtonReducer';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 const reducers = {
-    gazeButtonReducer
+    gazeButtonReducer: gazeButtonReducer
 }
 
-const composeEnhancers = (dom && process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-const store = createStore(combineReducers(reducers), fromJS(initialState));   
+const composeEnhancers = (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+const store = createStore(combineReducers(reducers));   
 
 class GATVR extends React.Component {
   render() {
