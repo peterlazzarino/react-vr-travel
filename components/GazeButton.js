@@ -24,6 +24,7 @@ class GazeButton extends React.Component{
         });
     }
     gazeComplete(){
+        clearInterval(this.gazeTimeout); 
         console.log("DONE");
     }
     increaseOverlayWidth(){
