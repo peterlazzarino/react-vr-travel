@@ -2,6 +2,24 @@ import React from "react";
 import { Text, View, StyleSheet } from 'react-vr';
 import { absoluteCenter } from '../style/style-mixins'; 
 
+
+const mapStateToProps = (state, ownProps) => {
+    const nonImmutableState = state.get("metaHeaderReducer").toJS();
+    return {
+        location: nonImmutableState.location || ownProps.location,
+        params: nonImmutableState.params || ownProps.params,
+        titleRules: nonImmutableState.titleRules || ownProps.titleRules,
+        metaTagRules: nonImmutableState.metaTagRules || ownProps.metaTagRules,
+    };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        fetchMeta: (path) => dispatch(fetchMetaContent(path)),
+        fetchTitle: (path) => dispatch(fetchTitleContent(path))
+    }
+}
+
 class GazeButton extends React.Component{
     constructor(props){
         super(props);
@@ -72,5 +90,6 @@ class GazeButton extends React.Component{
     }
 }
 
-export default GazeButton;
+const GazeButtonConnect = connect(mapStateToProps, mapDispatchToProps)(GazeButton);
 
+export default GazeButtonConnect;
