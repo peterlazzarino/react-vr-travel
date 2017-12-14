@@ -12,6 +12,10 @@ var config = {
     return blacklist([
     ]);
   },
+  
+  getProvidesModuleNodeModules() {
+    return ['react-native', 'react-vr'];
+  },
 
   getAssetExts() {
     return ['obj', 'mtl'];
