@@ -15,9 +15,11 @@ class GazeButton extends React.Component{
         this.gazeComplete = this.gazeComplete.bind(this);
     }
     gazeEnter(){
+        console.log("HEY")
         this.gazeTimeout = setInterval(() => this.increaseOverlayWidth(), 5);
     }
     gazeLeave(){
+        console.log("HEY")
         clearInterval(this.gazeTimeout); 
         this.setState({
             gazeOverLayWidth: 0
@@ -37,7 +39,7 @@ class GazeButton extends React.Component{
     }
     render(){
         return(
-            <View onGazeEnter={this.gazeEnter} onMouseEnter={this.gazeEnter} onMouseExit={this.gazeLeave} onGazeExit={this.gazeLeave} style={{
+            <View onEnter={this.gazeEnter} onExit={this.gazeLeave} style={{
                     height:1,
                     width: this.props.width,
                     padding:.75,

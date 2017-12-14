@@ -1,7 +1,7 @@
 'use strict';
 
 var path = require('path');
-var blacklist = require('./node_modules/react-native/packager/blacklist');
+var blacklist = require('metro-bundler/src/blacklist');
 
 var config = {
   getProjectRoots() {
@@ -12,10 +12,6 @@ var config = {
     return blacklist([
     ]);
   },
-  
-  getProvidesModuleNodeModules() {
-    return ['react-native', 'react-vr'];
-  },
 
   getAssetExts() {
     return ['obj', 'mtl'];
@@ -23,6 +19,10 @@ var config = {
 
   getPlatforms() {
     return ['vr'];
+  },
+
+  getProvidesModuleNodeModules() {
+    return ['react-native', 'react-vr'];
   },
 };
 

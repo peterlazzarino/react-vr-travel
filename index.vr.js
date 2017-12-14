@@ -19,7 +19,8 @@ const reducers = {
 const composeEnhancers = (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const store = createStore(combineReducers(reducers));   
 
-class GATVR extends React.Component {
+
+export default class VR_Travel extends React.Component {
   render() {
     return (
       <Provider store={store}>
@@ -42,6 +43,6 @@ class GATVR extends React.Component {
       </Provider>
     );
   }
-}; 
+};
 
-AppRegistry.registerComponent('GATVR', () => GATVR);
+AppRegistry.registerComponent('VR_Travel', () => VR_Travel);
